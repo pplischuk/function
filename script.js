@@ -4,7 +4,6 @@ let num = 4;
 let DegreeOfNum = Degree(num);
 
 function Degree(a){
-
 	return a**3;
 }
 
@@ -83,14 +82,32 @@ const SECINHOUR = 3600;
 const MININHOUR = 60;
 
 let realTime = function goToRealTime(a){
-
+	let timeArr = [];
 	if(a > 86400){
 		alert("Більше одного дня")
 	}else{
 		let b = Math.floor(a / SECINHOUR);
 		let c = Math.floor((a % SECINHOUR) / MININHOUR);
 		let d = (a % SECINHOUR) - c*MININHOUR;
-		alert(`Реальний час - ${b}:${c}:${d}`);
+		if(b < 10){
+			timeArr[0] = '0' + b;
+		}else{
+			timeArr[0] =  b;
+		}
+
+		if(c < 10){
+			timeArr[1] = '0' + c;
+		}else{
+			timeArr[1] =  b;
+		}
+
+		if(d < 10){
+			timeArr[2] = '0' + d;
+		}else{
+			timeArr[2] =  d;
+		}
+		
+		alert(timeArr.join(':'));
 	}
 
 	return;
